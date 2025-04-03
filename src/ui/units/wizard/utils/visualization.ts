@@ -26,6 +26,7 @@ import {
     LINE_D3_VISUALIZATION,
     LINE_VISUALIZATION,
     METRIC_VISUALIZATION,
+    PIE_3D_VISUALIZATION,
     PIE_D3_VISUALIZATION,
     PIE_VISUALIZATION,
     PIVOT_TABLE_VISUALIZATION,
@@ -59,7 +60,7 @@ export const prepareFieldToMeasureTransformation = (item: Field): Field => {
 
 export function getAvailableVisualizations(options?: ChartkitGlobalSettings) {
     const {
-        highcharts: {enabled: isHighchartsEnabled = false} = {},
+        highcharts: {enabled: isHighchartsEnabled = true} = {},
         yandexMap: {enabled: isYandexMapEnabled = false} = {},
     } = options || DL.CHARTKIT_SETTINGS;
 
@@ -118,6 +119,10 @@ export function getAvailableVisualizations(options?: ChartkitGlobalSettings) {
         },
         {
             value: PIE_VISUALIZATION,
+            enabled: isHighchartsEnabled,
+        },
+        {
+            value: PIE_3D_VISUALIZATION,
             enabled: isHighchartsEnabled,
         },
         {
@@ -191,6 +196,7 @@ const highchartsD3Map = [
     [WizardVisualizationId.Column, WizardVisualizationId.BarXD3],
     [WizardVisualizationId.Scatter, WizardVisualizationId.ScatterD3],
     [WizardVisualizationId.Pie, WizardVisualizationId.PieD3],
+    [WizardVisualizationId.Pie3D, WizardVisualizationId.PieD3],
     [WizardVisualizationId.Donut, WizardVisualizationId.DonutD3],
     [WizardVisualizationId.Bar, WizardVisualizationId.BarYD3],
     [WizardVisualizationId.Bar100p, WizardVisualizationId.BarY100pD3],
